@@ -1,7 +1,6 @@
 #include<iostream>
 #include<cmath>
 #include<cstdio>
-#include<conio.h>
 using namespace std;
 
 char buffer[1000];
@@ -47,6 +46,5 @@ int main(){
 		}
 	}
 	cout << buffer << endl;
-	getch();
 	return 0;
 }
