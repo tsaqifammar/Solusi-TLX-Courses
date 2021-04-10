@@ -15,20 +15,15 @@ ll powmod(ll a, ll b, ll n){
 	return ans;
 }
 
-ll pow3(ll a, ll b, ll c, ll n){
-	if (a == 0) return 0;
-	if (a == 1 && b == 0) return 1;
-	if (b == 1 && c == 0) return (a % n);
-	if (c == 1) return powmod(a,b,n);
-	return powmod(pow3(a,b,c-1,n), b, n);
-}
-
-// a^b^c = a^(b^(c-1) * b) = (a^b^(c-1))^b
+// a^b^c = (((a^b)^b)^b)^b...)^b    c times of ^b's
 
 int main(){
 	ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
 	ll a, b, c, n;
 	cin >> a >> b >> c >> n;
-	cout << pow3(a,b,c,n) + 1 << '\n';
+	ll hasil = a;
+	for (int i = 0; i < c; i++)
+		hasil = powmod(hasil,b,n);
+	cout << hasil + 1 << '\n';
 }
